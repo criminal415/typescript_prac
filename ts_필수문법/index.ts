@@ -1,5 +1,5 @@
 //변수 선언이 많아지면 type을 선언하여 사용할 수 있다.
-type myType = string | number;
+type myType = string | number | boolean; //Union type 두개 이상의 타입을 합친 새로운 타입
 
 //변수 선언시 type은 
 //string, num, boolean, null, undefined, bigint, [], {}등을 선언할 수 있다. 
@@ -37,3 +37,23 @@ class User2 {
         this.name = name;
     }
 }
+
+//Union type 예제
+let Users2 :(number | string)[] = [1, '2', 3]
+let Ojt : { a : string | number} = { a : '123'}
+
+//모든 type 지정
+let Name3 :any = 123
+Name3 = '호';
+Name3 = []; //but any로 사용하면 typescript 쓰는 의미가 없어짐
+let Name4 :unknown = 456;
+Name4 = '호';
+Name4 = {}; //any 와 비슷하나 unknown이 좀더 안전 아래와 같은 상황
+let a :string = Name3 //error 안남 any
+let b :string = Name4 //error 남   unknown
+
+//같은 type 끼리의 연산만 error가 나지 않는다.
+let Num2 :unknown = 1
+Num2+1 // error!!!
+let Age2 :string|number;
+Age2 +1; // error!! string type (Age21 허용), number type (허용) but string|number (error)
