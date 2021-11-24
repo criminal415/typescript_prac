@@ -84,7 +84,7 @@ function 클리닝함수(a :(number|string)[]){
 console.log( 클리닝함수([123,'3']) )
 
 //예제2
-function 만들함수( x :{subject : string | string[]} ) :string{
+function 만들함수1( x :{subject : string | string[]} ) :string{
   if (typeof x.subject === 'string') {
     return x.subject
   } else if (Array.isArray(x.subject) ){
@@ -94,4 +94,4 @@ function 만들함수( x :{subject : string | string[]} ) :string{
   }
 }
 
-console.log( 만들함수( { subject : ['english', 'art'] }  ) )
+console.log( 만들함수1( { subject : ['english', 'art'] }  ) )
