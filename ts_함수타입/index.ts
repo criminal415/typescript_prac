@@ -78,6 +78,10 @@ interface Student {
 interface Teacher extends Student {
   age: number;
 }
+
+type Cat = { age : number } & Student // type 과 interface 교차 가능!
+type Cat2 = { name : number } & Student // 선언할 때는 에러가 나지 않지만 아래와 같이 사용할 때 에러남!
+//let 야옹이 : Cat2 = { name : 'Kim'} //속성중복!!!
 // interface Student {
 //   name: string;
 // }
@@ -105,12 +109,12 @@ interface Animal1 {
 //interface의 경우 중복선언시 extend 한것과 동일하게 동작한다
 //장점(자주 쓰는 외부 라이브러리 이용시 type 선언을 덮어쓰기, override 하기 편리)
 //반면 type의 경우 아래와 같이 중복선언을 하면 error가 난다(엄격함!)
-type Animal2 = {
-  name: string;
-};
-type Animal2 = {
-  legs: number;
-};
+// type Animal2 = {
+//   name: string;
+// };
+// type Animal2 = {
+//   legs: number;
+// };
 //하지만 둘다 object의 속성이 중복되면서 type이 다르면 error난다!!!(같은 타입이면 error안나고 하나로 합쳐줌)
 
 //예제1
@@ -142,3 +146,4 @@ interface NewCart extends Cart{
   }
 
 let product :NewCart = { product : '청소기', price : 7000, card : false }
+
