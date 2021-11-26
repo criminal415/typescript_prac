@@ -29,9 +29,9 @@ let Name4 = 456;
 Name4 = '호';
 Name4 = {}; //any 와 비슷하나 unknown이 좀더 안전 아래와 같은 상황
 let a = Name3; //error 안남 any
-let b = Name4; //error 남   unknown
+// let b :string = Name4 //error 남   unknown
 //같은 type 끼리의 연산만 error가 나지 않는다.
-let Num2 = 1;
-Num2 + 1; // error!!!
-let Age2;
-Age2 + 1; // error!! string type (Age21 허용), number type (허용) but string|number (error)
+// let Num2 :unknown = 1
+// Num2+1 // error!!!
+// let Age2 :string|number;
+// Age2 +1; // error!! string type (Age21 허용), number type (허용) but string|number (error)
