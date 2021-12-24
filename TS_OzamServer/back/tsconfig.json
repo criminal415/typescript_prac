@@ -2,7 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "lib": ["es2020"],
-    "esModuleInterop": true,
+    // "esModuleInterop": true,
     "moduleResolution": "node",
     "typeRoots": ["./types"]
   }
