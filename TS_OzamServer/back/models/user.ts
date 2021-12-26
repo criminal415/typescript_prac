@@ -1,6 +1,7 @@
 import { Model, DataTypes } from 'sequelize';
 import { dbType } from './index';
 import { sequelize } from './sequelize';
+import Post from './post';
 
 class User extends Model {
   public readonly id!: number;
@@ -9,6 +10,10 @@ class User extends Model {
   public password!: string;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
+
+  public readonly Posts?: Post[];
+  public readonly Followers?: User[];
+  public readonly Followings?: User[];
 }
 
 User.init(
@@ -35,8 +40,6 @@ User.init(
   }
 );
 
-export const associate = (db: dbType) => {
-
-}
+export const associate = (db: dbType) => {};
 
 export default User;
