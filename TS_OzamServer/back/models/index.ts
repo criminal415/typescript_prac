@@ -19,3 +19,5 @@ associateComment(db);
 associateHashtag(db);
 associateImage(db);
 associatePost(db);
+
+export { Post, Hashtag, Image };
