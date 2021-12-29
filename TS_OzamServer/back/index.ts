@@ -9,6 +9,8 @@ import hpp from 'hpp';
 import helmet from 'helmet';
 
 import { sequelize } from './models';
+import userRouter from './routes/user';
+import postRouter from './routes/post';
 
 dotenv.config();
 const app = express();
@@ -63,6 +65,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use('./user', userRouter);
+app.use('./post', postRouter);
 
 app.get('/', (req, res, next) => {
   res.send('ozam-server 정상 동작!');

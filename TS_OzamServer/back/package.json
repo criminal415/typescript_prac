@@ -11,6 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
+    "@types/bluebird": "^3.5.36",
     "@types/cookie-parser": "^1.4.2",
     "@types/cors": "^2.8.12",
     "@types/dotenv": "^8.2.0",
@@ -26,6 +27,7 @@
     "@types/passport-local": "^1.0.34",
     "aws-sdk": "^2.1048.0",
     "bcrypt": "^5.0.1",
+    "bluebird": "^3.7.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
@@ -36,6 +38,7 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.4",
     "multer-s3": "^2.10.0",
+    "mysql2": "^2.3.3",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
     "sequelize": "^7.0.0-alpha.2",

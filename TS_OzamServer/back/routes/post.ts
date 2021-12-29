@@ -4,6 +4,7 @@ import path from 'path';
 import multer from 'multer';
 import multerS3 from 'multer-s3';
 import AWS from 'aws-sdk';
+import BlueBird from 'bluebird';
 
 import { Post, Hashtag, Image } from '../models';
 
@@ -47,7 +48,7 @@ router.post('/', isLoggedIn, upload.none(), async (req, res, next) => {
     }
     if (req.body.image) {
       if (Array.isArray(req.body.image)) {
-        const promises = req.body.image.map((image: string) => Image.create({ src: image }));
+        const promises: BlueBird<Image>[] = req.body.image.map((image: string) => Image.create({ src: image }));
         const images = await Promise.all(promises);
         await newPost.addImages(images);
       } else {
@@ -72,6 +73,7 @@ router.post('/', isLoggedIn, upload.none(), async (req, res, next) => {
         },
       ],
     });
+    return res.json(fullPost);
   } catch (err) {
     console.error(err);
     return next(err);
