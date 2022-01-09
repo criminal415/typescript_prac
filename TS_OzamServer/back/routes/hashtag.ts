@@ -24,6 +24,10 @@ router.get('/:tag', async (req, res, next) => {
         },
         {
           model: User,
+          attributes: ['id', 'nickname'],
+        },
+        {
+          model: User,
           as: 'Likers',
           attributes: ['id', 'nickname'],
         },
@@ -52,8 +56,11 @@ router.get('/:tag', async (req, res, next) => {
         },
       ],
     });
+    return res.json(posts);
   } catch (err) {
     console.error(err);
     return next(err);
   }
 });
+
+export default router;
